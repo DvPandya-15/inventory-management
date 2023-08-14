@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <h1>Product Movement</h1>
+    <form form action="/add/product_movement" method="post">
+        <label for="movement_id" >Movement Id</label>
+    <input type="text"  id="movement_id" name="movement_id" required><br>
+        <label for="product_name">Product:</label>
+        <select id="product_name" name="product_name" required>
+            {% for product in products %}
+            <option value="{{ product.product_name }}" {% if movement and movement.product_name == product.product_name %}selected{% endif %}>{{ product.product_name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="from_location">From Location:</label>
+        <select id="from_location" name="from_location" required>
+            <option value="">-- None --</option>
+            {% for location in locations %}
+            <option value="{{ location.location_name }}" {% if movement and movement.from_location == location.location_name %}selected{% endif %}>{{ location.location_name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="to_location">To Location:</label>
+        <select id="to_location" name="to_location" required>
+            <option value="">-- None --</option>
+            {% for location in locations %}
+            <option value="{{ location.location_name }}" {% if movement and movement.to_location == location.location_name %}selected{% endif %}>{{ location.location_name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="qty">Quantity:</label>
+        <input type="number" id="qty" name="qty" value="{{ movement.qty if movement else '' }}" required>
+        <br>
+
+        <input type="submit" value="Add Product Movement">
+    </form>
+        {% endblock %}

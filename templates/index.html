@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+<form action="/" method="post">
+
+  <div class="mb-3 mx-3">
+    <label for="product_id" class="form-label">Product Id</label>
+    <input type="text" id="product_id" class="form-control" name="product_id"
+      value="{{ product.product_id if product else '' }}" required>
+  </div>
+  <div class="mb-3 mx-3">
+    <label for="Product_Name" class="form-label">Product Name</label>
+    <input type="text" class="form-control" id="Product_Name" name="Product_Name">
+
+  </div>
+  <!--  <div class="mb-3 mx-3">
+    <label for="product_qty" class="form-label">Product Quantity</label>
+    <input type="text" class="form-control" id="product_qty" name="product_qty">
+
+  </div>
+  <div class="mb-3 mx-3">
+    <label for="product_location" class="form-label">Product Location</label>
+    <input type="text" class="form-control" id="product_location" name="product_location">
+
+  </div> -->
+
+
+  <button type="submit" class="btn btn-primary mx-3">Submit</button>
+</form>
+</div>
+
+<!-- <div class="container mx-1 my-5">
+  <h2>My Products</h2>
+  {% if allProducts|length == 0 %}
+  No Record
+  {% else %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Product Id</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Quantity</th>
+        <th scope="col">Product Location</th> 
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for product in allProducts %}
+      <tr>
+        <th scope="row">{{product.product_id}}</th>
+        {% for row in product_qty_list %}
+        <td>{{row.name}}</td>
+        
+        <td>{{row.total_quantity}}</td>
+        {% endfor %}
+        <td>{{product.product_location}}</td>
+        <td><a href="/update/{{product.product_id}}"><button type="button" class="btn btn-dark">Edit</button></a></td>
+        <td><a href="/delete/{{product.product_id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+        </td>
+        <td><a href="/view/{{product.product_id}}"><button class="btn btn-primary" type="button">View</button></a></td>
+
+      </tr>
+      {% endfor %}
+
+
+
+    </tbody>
+  </table>
+  {% endif %}
+</div> -->
+{% endblock %}

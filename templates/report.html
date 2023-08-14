@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container mx-1 my-5">
+    <h2>Report</h2>
+    {% if report|length == 0 %}
+    No Record
+    {% else %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Location</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Qty</th>
+      
+        </tr>
+      </thead>
+      <tbody>
+  
+        {% for product in report %}
+        <tr>
+          <td>{{product.to_location}}</td>
+          <td>{{product.product_name}}</td>
+          <td>{{product.qty}}</td>
+        </tr>
+        {% endfor %}
+  
+  
+  
+      </tbody>
+    </table>
+    {% endif %}
+    </div>
+    {% endblock %}

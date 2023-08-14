@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<form action="/add/location" method="post">
+    <div class="mb-3 mx-3">
+        <label for="location_id" class="form-label">Location Id</label>
+        <input type="text" id="location_id"  class="form-control" name="location_id"required>
+      </div>
+      <div class="mb-3 mx-3">
+        <label for="location_name" class="form-label">Location Name</label>
+        <input type="text" class="form-control" id="location_name" name="location_name">
+      </div>
+      <button type="submit" class="btn btn-primary mx-3">Submit</button>
+
+    </form>
+    <div class="container mx-1 my-5">
+        <h2>Locations</h2>
+        {% if allLocation|length == 0 %}
+        No Record
+        {% else %}
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Location ID</th>
+              <th scope="col">Location Name</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+      
+            {% for location in allLocation %}
+            <tr>
+              <th scope="row">{{location.location_id}}</th>
+              <td>{{location.location_name}}</td>
+            </tr>
+            {% endfor %}
+      
+      
+      
+          </tbody>
+        </table>
+        {% endif %}
+
+{% endblock %}
