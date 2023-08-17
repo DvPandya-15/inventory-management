@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<form action="/view/{{product.product_id}}" method="post">
+<form action="/products/{{product.product_id}}" method="post">
     <div class="mb-3 mx-3">
         <label for="product_id" class="form-label">Product Id</label>
         <input type="text" id="product_id" readonly class="form-control" name="product_id" value="{{ product.product_id}}" required>

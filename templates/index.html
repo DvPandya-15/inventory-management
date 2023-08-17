@@ -2,7 +2,7 @@
 {% block body %}
 
 
-<form action="/" method="post">
+<form action="/products" method="post">
 
   <div class="mb-3 mx-3">
     <label for="product_id" class="form-label">Product Id</label>
@@ -57,10 +57,10 @@
         <td>{{row.total_quantity}}</td>
         {% endfor %}
         <td>{{product.product_location}}</td>
-        <td><a href="/update/{{product.product_id}}"><button type="button" class="btn btn-dark">Edit</button></a></td>
-        <td><a href="/delete/{{product.product_id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+        <td><a href="/products/{{product.product_id}}"><button type="button" class="btn btn-dark">Edit</button></a></td>
+        <td><a href="/products/{{product.product_id}}"><button type="button" class="btn btn-danger">Delete</button></a>
         </td>
-        <td><a href="/view/{{product.product_id}}"><button class="btn btn-primary" type="button">View</button></a></td>
+        <td><a href="/products/{{product.product_id}}"><button class="btn btn-primary" type="button">View</button></a></td>
 
       </tr>
       {% endfor %}

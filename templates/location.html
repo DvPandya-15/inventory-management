@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<form action="/add/location" method="post">
+<form action="/locations" method="post">
     <div class="mb-3 mx-3">
         <label for="location_id" class="form-label">Location Id</label>
         <input type="text" id="location_id"  class="form-control" name="location_id"required>
@@ -16,7 +16,7 @@
     </form>
     <div class="container mx-1 my-5">
         <h2>Locations</h2>
-        {% if allLocation|length == 0 %}
+        {% if all_locations|length == 0 %}
         No Record
         {% else %}
         <table class="table">
@@ -30,7 +30,7 @@
           </thead>
           <tbody>
       
-            {% for location in allLocation %}
+            {% for location in all_locations %}
             <tr>
               <th scope="row">{{location.location_id}}</th>
               <td>{{location.location_name}}</td>
