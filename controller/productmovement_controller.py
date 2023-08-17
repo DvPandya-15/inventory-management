@@ -5,7 +5,7 @@ from flask import render_template, request
 from app import db,app
 from services.productmovement_service import productmoevementservice
 
-@app.route('/product_movement', methods=['GET', 'POST'])
+@app.route('/product-movement', methods=['GET', 'POST'])
 def get_product_movement():
     products = productmoevementservice.get_all_products()
     locations = productmoevementservice.get_all_locations()
